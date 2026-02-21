@@ -1,0 +1,8 @@
+/diagnostic            /diagnostic-gratuit.html       200
+/diagnostic-sante      /diagnostic-sante.html         200
+/diagnostic-agro       /diagnostic-agro.html          200
+/diagnostic-btph       /diagnostic-btph.html          200
+/diagnostic-bureaux-etudes  /diagnostic-bureaux-etudes.html  200
+
+# Redirections de sécurité
+/*                     /diagnostic-gratuit.html       404
