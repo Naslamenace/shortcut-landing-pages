@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diagnostic gratuit Management — Secteur Santé | Shortcut</title>
+  <meta name="description" content="Vos chefs de service ont été promus. Ont-ils été bien formés pour manager ? 30 minutes avec un expert Shortcut pour identifier vos vrais leviers de performance. Gratuit, sans engagement." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;700&family=DM+Sans:wght@400;500&family=Instrument+Sans:wght@500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-primary:        #1E6FEB;
+      --color-primary-dark:   #1558C7;
+      --color-primary-light:  #EBF3FF;
+      --color-bg-page:        #F0F7FF;
+      --color-white:          #FFFFFF;
+      --color-text-title:     #1A1A2E;
+      --color-text-body:      #4A4A68;
+      --color-text-muted:     #8A8AAA;
+      --color-border:         #DDE8F5;
+      --color-success-bg:     #E8F5E9;
+      --color-success:        #2E7D32;
+
+      --font-heading: 'Onest', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-ui:      'Instrument Sans', sans-serif;
+
+      --radius-pill:    50px;
+      --radius-card:    20px;
+      --radius-card-sm: 16px;
+      --radius-input:   12px;
+
+      --shadow-card: 0 2px 16px rgba(30, 111, 235, 0.07);
+      --shadow-nav:  0 2px 24px rgba(30, 111, 235, 0.11);
+      --shadow-btn:  0 4px 20px rgba(30, 111, 235, 0.32);
+
+      --transition-fast:   0.15s ease;
+      --transition-normal: 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--color-text-body);
+      background-color: var(--color-bg-page);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-top: 72px;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-heading);
+      color: var(--color-text-title);
+      line-height: 1.15;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    section { padding: 88px 0; }
+
+    /* ===== NAVBAR ===== */
+    .nav-wrapper {
+      position: fixed;
+      top: 12px;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 28px;
+      transform: translateY(0);
+      transition: transform 0.35s ease, opacity 0.35s ease;
+      opacity: 1;
+    }
+
+    .nav-wrapper.hidden {
+      transform: translateY(calc(-100% - 20px));
+      opacity: 0;
+    }
+
+    nav {
+      max-width: 1080px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: var(--radius-pill);
+      padding: 10px 16px 10px 20px;
+      box-shadow: var(--shadow-nav);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+    }
+
+    .nav-phone {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-body);
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+
+    .nav-phone:hover { color: var(--color-primary); }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 14px;
+      border-radius: var(--radius-pill);
+      padding: 11px 24px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .nav-cta:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-btn);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-right: 4px;
+    }
+
+    .nav-links a {
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-body);
+      text-decoration: none;
+      transition: color var(--transition-fast);
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--color-primary);
+    }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+
+
+    /* ===== FORM 2 STEPS ===== */
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+
+    .step-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    .step-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--color-border);
+      color: var(--color-text-muted);
+      transition: background var(--transition-normal), color var(--transition-normal);
+    }
+
+    .step-dot.active {
+      background: var(--color-primary);
+      color: #fff;
+    }
+
+    .step-dot.done {
+      background: var(--color-success);
+      color: #fff;
+    }
+
+    .step-line {
+      flex: 1;
+      height: 2px;
+      background: var(--color-border);
+      border-radius: 2px;
+    }
+
+    .btn-next {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: var(--radius-pill);
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-next:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-btn);
+      transform: translateY(-1px);
+    }
+
+    .btn-back {
+      background: none;
+      border: none;
+      color: var(--color-text-muted);
+      font-family: var(--font-ui);
+      font-size: 14px;
+      cursor: pointer;
+      padding: 8px 0;
+      display: block;
+      margin-bottom: 12px;
+      transition: color var(--transition-fast);
+    }
+
+    .btn-back:hover { color: var(--color-primary); }
+
+    /* ===== HERO ===== */
+    #hero {
+      background: linear-gradient(175deg, #EBF3FF 0%, #F0F7FF 100%);
+      padding: 100px 0 96px;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(30, 111, 235, 0.10);
+      color: var(--color-primary);
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-badge span { font-size: 16px; }
+
+    #hero h1 {
+      font-size: clamp(28px, 3.2vw, 42px);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 22px;
+      color: var(--color-text-title);
+    }
+
+    #hero h1 em {
+      font-style: normal;
+      color: var(--color-primary);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      color: var(--color-text-body);
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: var(--radius-pill);
+      padding: 16px 36px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-btn);
+      transform: translateY(-1px);
+    }
+
+    .reassurance-line {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--color-text-muted);
+      letter-spacing: 0.01em;
+    }
+
+    .reassurance-line span {
+      margin: 0 4px;
+      opacity: 0.5;
+    }
+
+    /* Hero right — stats card */
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 24px 28px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .stat-icon {
+      width: 52px;
+      height: 52px;
+      min-width: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3B8BF5 0%, #1558C7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .stat-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 2px;
+    }
+
+    .stat-text p {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.4;
+    }
+
+    /* ===== SECTION PROBLEM ===== */
+    #problem {
+      background: var(--color-white);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+
+    #problem h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 36px;
+      max-width: 600px;
+    }
+
+    .problem-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .problem-text p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--color-text-body);
+      margin-bottom: 16px;
+    }
+
+    .problem-text p:last-child { margin-bottom: 0; }
+
+    .problem-text strong {
+      color: var(--color-text-title);
+      font-family: var(--font-heading);
+      font-weight: 700;
+    }
+
+    .problem-callout {
+      background: var(--color-primary-light);
+      border-radius: var(--radius-card);
+      padding: 36px;
+      border: 4px solid var(--color-primary);
+    }
+
+    .problem-callout p {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+
+    .problem-callout .callout-sub {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--color-text-body);
+    }
+
+    /* ===== SECTION WHAT IS IT ===== */
+    #what {
+      background: var(--color-bg-page);
+    }
+
+    #what h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    #what .section-intro {
+      font-size: 17px;
+      color: var(--color-text-body);
+      margin-bottom: 52px;
+      max-width: 560px;
+    }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .phase-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .phase-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(30, 111, 235, 0.12);
+    }
+
+    .phase-label {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .phase-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 12px;
+      font-family: var(--font-heading);
+    }
+
+    .phase-card p {
+      font-size: 15px;
+      color: var(--color-text-body);
+      line-height: 1.65;
+    }
+
+    /* ===== SECTION STEPS ===== */
+    #steps {
+      background: var(--color-white);
+    }
+
+    #steps h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 52px;
+      text-align: center;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(33.33% - 12px);
+      right: calc(33.33% - 12px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary), var(--color-primary-light));
+      z-index: 0;
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-number {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3B8BF5 0%, #1558C7 100%);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      box-shadow: 0 6px 20px rgba(30, 111, 235, 0.30);
+    }
+
+    .step h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 6px;
+    }
+
+    .step-time {
+      font-family: var(--font-ui);
+      font-size: 12px;
+      color: var(--color-primary);
+      font-weight: 500;
+      margin-bottom: 12px;
+      background: var(--color-primary-light);
+      padding: 3px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION ANALYSIS ===== */
+    #analysis {
+      background: var(--color-primary-light);
+    }
+
+    #analysis h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 48px;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .analysis-item {
+      background: var(--color-white);
+      border-radius: var(--radius-card-sm);
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transition: transform var(--transition-normal);
+    }
+
+    .analysis-item:hover {
+      transform: translateY(-2px);
+    }
+
+    .analysis-dot {
+      width: 10px;
+      height: 10px;
+      min-width: 10px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      margin-top: 6px;
+    }
+
+    .analysis-item p {
+      font-size: 15px;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    .analysis-item p strong {
+      color: var(--color-text-title);
+      font-weight: 500;
+    }
+
+    /* ===== SECTION FOR WHO ===== */
+    #for-who {
+      background: var(--color-white);
+    }
+
+    .for-who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .for-who-block h2 {
+      font-size: clamp(22px, 3vw, 30px);
+      font-weight: 700;
+      margin-bottom: 28px;
+    }
+
+    .for-who-block.yes h2 { color: var(--color-text-title); }
+    .for-who-block.no  h2 { color: var(--color-text-muted); }
+
+    .criteria-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .criteria-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 20px;
+      border-radius: var(--radius-card-sm);
+    }
+
+    .yes .criteria-item { background: var(--color-primary-light); }
+    .no  .criteria-item { background: #F8F8FB; border: 1px solid var(--color-border); }
+
+    .criteria-icon {
+      font-size: 18px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .criteria-item p {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--color-text-body);
+    }
+
+    /* ===== SECTION TESTIMONIALS ===== */
+    #testimonials {
+      background: var(--color-bg-page);
+    }
+
+    #testimonials h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 32px;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(30, 111, 235, 0.12);
+    }
+
+    .stars { color: #F5A623; font-size: 18px; letter-spacing: 2px; }
+
+    .testimonial-card blockquote {
+      font-size: 16px;
+      color: var(--color-text-title);
+      line-height: 1.65;
+      font-style: normal;
+      font-family: var(--font-heading);
+      font-weight: 400;
+      flex: 1;
+    }
+
+    .testimonial-card blockquote::before { content: '\201C'; }
+    .testimonial-card blockquote::after  { content: '\201D'; }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #3B8BF5 0%, #1558C7 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .author-info strong {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-title);
+    }
+
+    .author-info span {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== SECTION FAQ ===== */
+    #faq {
+      background: var(--color-white);
+    }
+
+    #faq h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      font-weight: 700;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-card-sm);
+      overflow: hidden;
+      background: var(--color-white);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      transition: background var(--transition-fast);
+    }
+
+    .faq-question:hover { background: var(--color-bg-page); }
+
+    .faq-chevron {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--color-primary-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      font-size: 16px;
+      transition: transform var(--transition-normal);
+    }
+
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      padding: 0 28px;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 28px 24px;
+    }
+
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--color-text-body);
+      line-height: 1.7;
+    }
+
+    /* ===== SECTION FORM ===== */
+    #form-section {
+      background: var(--color-primary-light);
+    }
+
+    .form-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .form-left h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 20px;
+    }
+
+    .form-left p {
+      font-size: 16px;
+      color: var(--color-text-body);
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .form-guarantees {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .form-guarantee {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--color-text-body);
+    }
+
+    .form-guarantee-icon {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 14px;
+    }
+
+    /* Form card */
+    .form-card {
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      box-shadow: 0 8px 40px rgba(30, 111, 235, 0.12);
+      border: 1px solid var(--color-border);
+    }
+
+    .form-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 28px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-title);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-input);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-text-title);
+      background: var(--color-white);
+      outline: none;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(30, 111, 235, 0.10);
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--color-text-muted);
+    }
+
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper::after {
+      content: '▾';
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--color-text-muted);
+      pointer-events: none;
+      font-size: 14px;
+    }
+
+    .btn-form {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--color-primary);
+      color: #fff;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: var(--radius-pill);
+      padding: 16px 32px;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-form:hover {
+      background: var(--color-primary-dark);
+      box-shadow: var(--shadow-btn);
+      transform: translateY(-1px);
+    }
+
+    .form-reassurance {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 12px;
+      color: var(--color-text-muted);
+    }
+
+    /* Form success state */
+    #form-success {
+      display: none;
+      background: var(--color-white);
+      border-radius: var(--radius-card);
+      padding: 52px 40px;
+      text-align: center;
+      box-shadow: 0 8px 40px rgba(30, 111, 235, 0.12);
+      border: 1px solid var(--color-border);
+    }
+
+    #form-success .success-icon {
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+
+    #form-success h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-text-title);
+      margin-bottom: 14px;
+    }
+
+    #form-success p {
+      font-size: 16px;
+      color: var(--color-text-body);
+      line-height: 1.6;
+    }
+
+    /* ===== SECTION CTA FINAL ===== */
+    #cta-final {
+      background: linear-gradient(135deg, #1558C7 0%, #1E6FEB 60%, #3B8BF5 100%);
+      padding: 96px 0;
+      text-align: center;
+    }
+
+    #cta-final h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+
+    #cta-final p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.80);
+      margin-bottom: 40px;
+    }
+
+    .btn-primary-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--color-primary-dark);
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: var(--radius-pill);
+      padding: 16px 40px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-primary-white:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.20);
+      transform: translateY(-2px);
+    }
+
+    .cta-final-guarantees {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-ui);
+    }
+
+    .cta-final-guarantees span { display: flex; align-items: center; gap: 6px; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--color-white);
+      border-top: 1px solid var(--color-border);
+      padding: 40px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo img { height: 30px; width: auto; }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-family: var(--font-ui);
+      font-weight: 500;
+      transition: color var(--transition-fast);
+    }
+
+    .footer-links a:hover { color: var(--color-primary); }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--color-text-muted);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero-inner        { grid-template-columns: 1fr; }
+      .hero-right        { display: flex; }
+      .problem-body      { grid-template-columns: 1fr; }
+      .phases-grid       { grid-template-columns: 1fr; }
+      .steps-grid        { grid-template-columns: 1fr; gap: 40px; }
+      .steps-grid::before{ display: none; }
+      .analysis-grid     { grid-template-columns: 1fr; }
+      .for-who-grid      { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-wrapper      { grid-template-columns: 1fr; gap: 40px; }
+      .form-group-row    { grid-template-columns: 1fr; }
+      .footer-inner      { flex-direction: column; text-align: center; }
+      .footer-links      { justify-content: center; }
+    }
+
+    @media (max-width: 600px) {
+      section               { padding: 60px 0; }
+      .nav-wrapper          { top: 8px; padding: 8px 12px 0; }
+      .container            { padding: 0 20px; }
+      .form-card            { padding: 28px 20px; }
+      .cta-final-guarantees { flex-direction: column; gap: 10px; }
+      .nav-phone            { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <div class="nav-wrapper">
+    <nav>
+      <a href="https://www.shortcut-formation.com/" class="nav-logo" target="_blank">
+        <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut Institut de Formation" />
+      </a>
+      <div style="flex:1;"></div>
+      <div class="nav-links">
+        <a href="#what">Comment ça marche</a>
+        <a href="#for-who">Pour qui</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a href="#form-section" class="nav-cta">Préparer mon diagnostic →</a>
+    </nav>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-badge">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            Diagnostic offert — Sans engagement
+          </div>
+          <h1>
+            
+            Vos chefs de service ont été promus.<br />
+            <em>Ont-ils été bien formés pour manager ?</em>
+          
+          </h1>
+          <p class="hero-sub">
+            
+            30 minutes avec un expert Shortcut pour identifier ce qui freine vraiment la coordination, la communication et la performance de vos équipes d'encadrement. Gratuit, sans engagement, sans catalogue à la fin.
+          
+          </p>
+          <div class="hero-cta-group">
+            <a href="#form-section" class="btn-primary">Préparer mon diagnostic →</a>
+            <p class="reassurance-line">
+              3 min pour le formulaire <span>·</span> 30–45 min d'échange <span>·</span> Plan d'action clair
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+            </div>
+            <div class="stat-text">
+              <strong>Diagnostic ciblé</strong>
+              <p>On identifie les 20% de compétences qui changent 80% des résultats</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-text">
+              <strong>30–45 minutes</strong>
+              <p>Un échange structuré, préparé à l'avance grâce à votre formulaire</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
+            </div>
+            <div class="stat-text">
+              <strong>Plan d'action concret</strong>
+              <p>Vous repartez avec une recommandation honnête — pas un devis</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROBLEM ===== -->
+  <section id="problem">
+    <div class="container">
+      <span class="section-label">Le constat</span>
+      <h2>Ce que vivent la plupart des cliniques et structures médicales privées.</h2>
+      <div class="problem-body">
+        <div class="problem-text">
+          <p>Vos médecins ont été formés pendant des années.
+          Vos soignants ont des protocoles précis, des accréditations, des formations continues.</p>
+          <p>Vos chefs de service et responsables de département, eux, gèrent des équipes pluridisciplinaires, des conflits inter-services, des réunions qui doivent aboutir à des décisions. Ce sont des compétences différentes — et la plupart du temps, personne n'a pris le temps de vérifier si elles étaient vraiment là.</p>
+          <p>Certaines structures ont déjà investi dans du management. D'autres pas. Dans les deux cas, la question reste la même : est-ce que ça se traduit concrètement dans la coordination quotidienne, la communication entre services, la capacité de vos cadres à résoudre les problèmes sans systématiquement remonter ?</p>
+          <p>Ce n'est pas un problème de personnes. C'est une question de méthode — et le diagnostic existe précisément pour y répondre.</p>
+        </div>
+        <div class="problem-callout">
+          <p>Shortcut commence par où les autres auraient dû commencer.</p>
+          <p class="callout-sub">On ne propose jamais de programme de montée en compétences avant d'avoir compris votre situation. Le diagnostic vient avant tout.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHAT IS THE DIAGNOSTIC ===== -->
+  <section id="what">
+    <div class="container">
+      <span class="section-label">Le diagnostic</span>
+      <h2>Un diagnostic, pas un argumentaire commercial.</h2>
+      <p class="section-intro">Le diagnostic Shortcut est un échange de 30 à 45 minutes entre vous et un expert. Pas un pitch. Pas une présentation de catalogue. Une conversation structurée autour de vos vrais enjeux.</p>
+      <div class="phases-grid">
+        <div class="phase-card">
+          <div class="phase-label">Avant l'appel</div>
+          <h3>Vous préparez le terrain</h3>
+          <p>Vous remplissez un formulaire court. Vos réponses permettent à l'expert de préparer l'échange — pas de perdre du temps à collecter les informations de base pendant l'appel.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">Pendant l'appel</div>
+          <h3>On analyse ensemble</h3>
+          <p>On regarde votre situation — les compétences qui manquent, les résultats que vous attendez, ce qui a déjà été essayé et pourquoi ça n'a pas fonctionné.</p>
+        </div>
+        <div class="phase-card">
+          <div class="phase-label">À la fin de l'appel</div>
+          <h3>Vous repartez avec un plan</h3>
+          <p>Une lecture claire de vos vrais leviers de performance — et une recommandation honnête sur ce qu'une formation peut (et ne peut pas) changer dans votre situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEPS ===== -->
+  <section id="steps">
+    <div class="container">
+      <h2>Comment ça se passe — en 3 étapes.</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-number">1</div>
+          <div class="step-time">3 minutes</div>
+          <h3>Vous remplissez le formulaire</h3>
+          <p>Quelques questions sur votre équipe, vos enjeux actuels et ce que vous avez déjà essayé. Ces réponses permettent à l'expert de préparer un échange utile dès la première minute.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <div class="step-time">Immédiat</div>
+          <h3>Vous choisissez votre créneau</h3>
+          <p>Dès la fin du formulaire, vous accédez au calendrier et réservez le créneau qui vous convient. Pas de relance, pas d'attente.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <div class="step-time">30 à 45 minutes</div>
+          <h3>L'appel a lieu</h3>
+          <p>Un expert Shortcut vous appelle à l'heure convenue. L'échange est structuré, direct, orienté vers votre situation réelle. Vous repartez avec une recommandation claire — pas un devis.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ANALYSIS ===== -->
+  <section id="analysis">
+    <div class="container">
+      <span class="section-label">La méthode</span>
+      <h2>Ce qu'on regarde pendant le diagnostic.</h2>
+      <div class="analysis-grid">
+        <div class="analysis-item">
+          <div class="analysis-dot"></div>
+          <p>Les <strong>compétences qui font réellement défaut</strong> à vos équipes (pas celles qui semblent manquer en surface).</p>
+        </div>
+        <div class="analysis-item">
+          <div class="analysis-dot"></div>
+          <p>Les <strong>comportements actuels qui coûtent des résultats</strong> — ventes perdues, process bloqués, temps gaspillé, outils sous-exploités.</p>
+        </div>
+        <div class="analysis-item">
+          <div class="analysis-dot"></div>
+          <p>Ce qui a déjà été tenté, et <strong>pourquoi l'impact n'a pas été au rendez-vous.</strong></p>
+        </div>
+        <div class="analysis-item">
+          <div class="analysis-dot"></div>
+          <p>Les <strong>20% de compétences</strong> qui, si elles étaient maîtrisées, changeraient 80% des résultats.</p>
+        </div>
+        <div class="analysis-item" style="grid-column: 1 / -1;">
+          <div class="analysis-dot"></div>
+          <p>Une recommandation sur ce qu'une formation peut changer — <strong>et dans quel délai.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOR WHO ===== -->
+  <section id="for-who">
+    <div class="container">
+      <div class="for-who-grid">
+        <div class="for-who-block yes">
+          <h2>Ce diagnostic est fait pour vous si...</h2>
+          <div class="criteria-list">
+            <div class="criteria-item">
+              <div class="criteria-icon">✓</div>
+              <p>Vous dirigez ou gérez une équipe dans le secteur de la santé en Algérie et vous sentez que les compétences freinent les résultats.</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-icon">✓</div>
+              <p>Vous avez déjà investi dans des formations sans voir de changement réel dans les comportements de vos équipes.</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-icon">✓</div>
+              <p>Vous avez un budget formation à allouer et vous voulez être sûr de l'investir sur ce qui compte vraiment.</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-icon">✓</div>
+              <p>Vous êtes sceptique sur la formation corporate classique — et vous cherchez quelque chose de fondamentalement différent.</p>
+            </div>
+          </div>
+        </div>
+        <div class="for-who-block no">
+          <h2>Ce diagnostic n'est pas fait pour vous si...</h2>
+          <div class="criteria-list">
+            <div class="criteria-item">
+              <div class="criteria-icon" style="color: var(--color-text-muted);">✕</div>
+              <p>Vous cherchez un organisme qui certifie des heures de formation pour des raisons administratives.</p>
+            </div>
+            <div class="criteria-item">
+              <div class="criteria-icon" style="color: var(--color-text-muted);">✕</div>
+              <p>Vous avez besoin d'une formation imposée à des équipes qui ne sont pas impliquées dans le processus.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>Ce qu'en disent ceux qui sont passés par là.</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>Le diagnostic a mis le doigt sur exactement ce qui bloquait mon équipe. En 45 minutes, j'avais plus de clarté qu'après des mois à tâtonner.</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div class="author-info">
+              <strong>Sarah</strong>
+              <span>Directrice commerciale</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>L'expert connaissait déjà notre contexte avant l'appel. On n'a pas perdu de temps à se présenter. On est allés directement à l'essentiel.</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">K</div>
+            <div class="author-info">
+              <strong>Karim</strong>
+              <span>Chef de projet</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>On a arrêté de former pour former. Le diagnostic nous a aidés à cibler.</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">F</div>
+            <div class="author-info">
+              <strong>Fares</strong>
+              <span>Responsable RH</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq">
+    <div class="container">
+      <h2>Les questions qu'on nous pose souvent.</h2>
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            C'est vraiment gratuit ? Quel est le piège ?
+            <div class="faq-chevron">▾</div>
+          </button>
+          <div class="faq-answer">
+            <p>Il n'y en a pas. Le diagnostic est gratuit parce que c'est notre point de départ — on ne propose jamais de formation avant de comprendre votre situation. Si on n'est pas la bonne réponse pour vous, on vous le dit franchement. Si on l'est, on vous fait une proposition sur-mesure. Vous décidez ensuite.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Est-ce que l'appel va déboucher sur une tentative de vente agressive ?
+            <div class="faq-chevron">▾</div>
+          </button>
+          <div class="faq-answer">
+            <p>Non. L'échange est structuré autour de votre situation, pas de notre catalogue. On vous posera des questions, on vous donnera notre lecture, on fera une recommandation. Si une formation Shortcut fait sens, on en parlera. Sinon, on ne vous y poussera pas.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            30 minutes, c'est suffisant pour un vrai diagnostic ?
+            <div class="faq-chevron">▾</div>
+          </button>
+          <div class="faq-answer">
+            <p>Le formulaire que vous remplissez avant l'appel nous permet de préparer l'échange sérieusement. On n'arrive pas à l'aveugle. 30 à 45 minutes bien préparées valent mieux qu'une heure d'improvisation.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Et si je ne suis pas sûr de ce dont mon équipe a besoin ?
+            <div class="faq-chevron">▾</div>
+          </button>
+          <div class="faq-answer">
+            <p>C'est exactement pour ça que le diagnostic existe. Vous n'avez pas besoin d'arriver avec une réponse — vous arrivez avec une situation. On fait le travail d'identification ensemble.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FORM ===== -->
+  <section id="form-section">
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="form-left">
+          <span class="section-label">Commencer</span>
+          <h2>Le premier pas ne coûte rien.<br />Et il change souvent beaucoup de choses.</h2>
+          <p>Un formulaire. Un créneau. Un plan d'action clair à la fin.</p>
+          <div class="form-guarantees">
+            <div class="form-guarantee">
+              <div class="form-guarantee-icon">✓</div>
+              Gratuit, sans aucune condition
+            </div>
+            <div class="form-guarantee">
+              <div class="form-guarantee-icon">✓</div>
+              Sans engagement, vous décidez après
+            </div>
+            <div class="form-guarantee">
+              <div class="form-guarantee-icon">✓</div>
+              Sans catalogue — un échange, pas un pitch
+            </div>
+            <div class="form-guarantee">
+              <div class="form-guarantee-icon">✓</div>
+              Votre expert prépare l'échange avant l'appel
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="form-card" id="form-card">
+            <h3>Préparer mon diagnostic →</h3>
+            <form id="diagnostic-form" onsubmit="handleSubmit(event)">
+
+              <!-- Indicateur d'étapes -->
+              <div class="step-indicator">
+                <div class="step-dot active" id="dot-1">1</div>
+                <div class="step-line"></div>
+                <div class="step-dot" id="dot-2">2</div>
+                <span style="margin-left:4px;">Étape <span id="step-label">1</span> sur 2</span>
+              </div>
+
+              <!-- ÉTAPE 1 : Questions qualitatives -->
+              <div class="form-step active" id="step-1">
+
+                <div class="form-group">
+                  <label for="poste">Votre poste</label>
+                  <div class="select-wrapper">
+                    <select id="poste" name="poste">
+                      <option value="" disabled selected>Sélectionnez votre poste</option>
+                      <option>DRH</option>
+                      <option>Directeur Général</option>
+                      <option>Manager</option>
+                      <option>Responsable Formation</option>
+                      <option>Autre</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="taille">Taille de l'équipe à former</label>
+                  <div class="select-wrapper">
+                    <select id="taille" name="taille">
+                      <option value="" disabled selected>Sélectionnez une tranche</option>
+                      <option>1 à 5 personnes</option>
+                      <option>6 à 10 personnes</option>
+                      <option>11 à 20 personnes</option>
+                      <option>Plus de 20 personnes</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="defi">Quel est le principal défi de votre équipe en ce moment ?</label>
+                  <textarea id="defi" name="defi" placeholder="Décrivez en quelques lignes votre situation actuelle..."></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="experience">Avez-vous déjà investi dans des formations professionnelles ?</label>
+                  <div class="select-wrapper">
+                    <select id="experience" name="experience">
+                      <option value="" disabled selected>Choisissez une option</option>
+                      <option>Oui, avec de bons résultats</option>
+                      <option>Oui, sans résultats significatifs</option>
+                      <option>Non, jamais</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="domaine">Domaine de diagnostic</label>
+                  <div class="select-wrapper" style="position:relative;">
+                    <input
+                      type="text"
+                      id="domaine"
+                      name="domaine"
+                      value="Management & Leadership"
+                      readonly
+                      style="
+                        width:100%;
+                        padding:14px 16px;
+                        border:2px solid var(--color-primary);
+                        border-radius:var(--radius-input);
+                        background:var(--color-primary-light);
+                        color:var(--color-primary-dark);
+                        font-family:var(--font-body);
+                        font-size:1rem;
+                        font-weight:500;
+                        cursor:default;
+                        outline:none;
+                      "
+                    />
+                    <span style="
+                      position:absolute;
+                      right:14px;top:50%;transform:translateY(-50%);
+                      font-size:0.72rem;font-weight:600;
+                      color:var(--color-primary);
+                      background:var(--color-primary-light);
+                      padding:2px 8px;border-radius:20px;
+                      border:1px solid rgba(30,111,235,0.25);
+                      pointer-events:none;
+                    ">Recommandé</span>
+                  </div>
+                  <p style="margin-top:6px;font-size:0.82rem;color:var(--color-text-muted);">
+                    Domaine pré-sélectionné selon votre secteur.
+                  </p>
+                </div>
+
+                <button type="button" class="btn-next" onclick="goToStep2()">
+                  Continuer → Vos coordonnées
+                </button>
+              </div>
+
+              <!-- ÉTAPE 2 : Coordonnées -->
+              <div class="form-step" id="step-2">
+
+                <button type="button" class="btn-back" onclick="goToStep1()">← Retour</button>
+
+                <div class="form-group-row">
+                  <div class="form-group" style="margin-bottom:0">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Votre prénom" required />
+                  </div>
+                  <div class="form-group" style="margin-bottom:0">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required />
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 18px;">
+                  <label for="email">Email professionnel</label>
+                  <input type="email" id="email" name="email" placeholder="vous@entreprise.com" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Téléphone</label>
+                  <input type="tel" id="phone" name="phone" placeholder="+213 — — — — — —" required />
+                </div>
+
+                <button type="submit" class="btn-form">Accéder à mon créneau →</button>
+                <p class="form-reassurance">Gratuit · Sans engagement · Réponse sous 24h</p>
+              </div>
+
+            </form>
+          </div>
+
+          <div id="form-success">
+            <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1E6FEB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
+            <h3>Votre formulaire a bien été reçu.</h3>
+            <p>Choisissez maintenant le créneau qui vous convient — votre expert aura pris connaissance de votre situation avant l'appel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA FINAL ===== -->
+  <section id="cta-final">
+    <div class="container">
+      <h2>Votre équipe mérite mieux<br />qu'une formation générique.</h2>
+      <p>Un formulaire. Un créneau. Un plan d'action clair à la fin.</p>
+      <a href="#form-section" class="btn-primary-white">Préparer mon diagnostic →</a>
+      <div class="cta-final-guarantees">
+        <span>✓ Gratuit</span>
+        <span>✓ Sans engagement</span>
+        <span>✓ Sans catalogue à la fin</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut" />
+        </div>
+        <div class="footer-links">
+          <a href="https://www.shortcut-formation.com/">Accueil</a>
+          <a href="https://www.shortcut-formation.com/#formations">Formations</a>
+          <a href="https://www.shortcut-formation.com/#faq">FAQ</a>
+          <a href="mailto:contact@shortcut-formation.com">contact@shortcut-formation.com</a>
+        </div>
+        <p class="footer-copy">© 2026 Shortcut Institut de Formation</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    // Form submit
+    const MAKE_WEBHOOK_URL = "https://hook.eu2.make.com/61p9s4wqh3iruw14hcm692muclkbe7xi";
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const card   = document.getElementById('form-card');
+      const success = document.getElementById('form-success');
+
+      // Collecte des données du formulaire
+      const payload = {
+        secteur:              "sante",
+        liste_brevo:          30,
+        prenom:               document.getElementById('prenom')?.value || "",
+        nom:                  document.getElementById('nom')?.value || "",
+        email:                document.getElementById('email')?.value || "",
+        telephone:            document.getElementById('phone')?.value || "",
+        poste:                document.getElementById('poste')?.value || "",
+        taille_equipe:        document.getElementById('taille')?.value || "",
+        defi:                 document.getElementById('defi')?.value || "",
+        domaine:              document.getElementById('domaine')?.value || "",
+        experience_formation: document.getElementById('experience')?.value || "",
+        source:               window.location.href
+      };
+
+      // Envoi vers Make (si webhook configuré)
+      if (MAKE_WEBHOOK_URL) {
+        fetch(MAKE_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(() => {}); // silencieux en cas d'erreur réseau
+      }
+
+      // Afficher le message de succès
+      card.style.display = 'none';
+      success.style.display = 'block';
+
+      // Redirection vers Calendly après 2,5 secondes
+      setTimeout(() => {
+        window.location.href = "https://calendly.com/contact-shortcut-formation/30min";
+      }, 2500);
+    }
+
+
+    // Formulaire 2 étapes
+    function goToStep2() {
+      document.getElementById('step-1').classList.remove('active');
+      document.getElementById('step-2').classList.add('active');
+      document.getElementById('dot-1').classList.remove('active');
+      document.getElementById('dot-1').classList.add('done');
+      document.getElementById('dot-1').textContent = '✓';
+      document.getElementById('dot-2').classList.add('active');
+      document.getElementById('step-label').textContent = '2';
+    }
+
+    function goToStep1() {
+      document.getElementById('step-2').classList.remove('active');
+      document.getElementById('step-1').classList.add('active');
+      document.getElementById('dot-2').classList.remove('active');
+      document.getElementById('dot-1').classList.remove('done');
+      document.getElementById('dot-1').classList.add('active');
+      document.getElementById('dot-1').textContent = '1';
+      document.getElementById('step-label').textContent = '1';
+    }
+
+    // Hide/show navbar on scroll
+    const navWrapper = document.querySelector('.nav-wrapper');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        navWrapper.classList.add('hidden');
+      } else {
+        navWrapper.classList.remove('hidden');
+      }
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
