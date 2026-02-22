@@ -802,6 +802,66 @@
       color: var(--color-text-muted);
     }
 
+    /* ===== SECTION WTC ===== */
+    #wtc {
+      background: var(--color-white);
+      padding: 48px 0;
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .wtc-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .wtc-label {
+      font-family: var(--font-ui);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+
+    .wtc-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--color-border);
+    }
+
+    .wtc-logo-wrap img {
+      height: 48px;
+      width: auto;
+      display: block;
+      opacity: 0.85;
+      transition: opacity var(--transition-fast);
+    }
+
+    .wtc-logo-wrap img:hover { opacity: 1; }
+
+    .wtc-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--color-text-body);
+      max-width: 420px;
+      line-height: 1.6;
+    }
+
+    .wtc-text strong {
+      color: var(--color-text-title);
+      font-weight: 600;
+    }
+
+    @media (max-width: 700px) {
+      .wtc-inner       { flex-direction: column; gap: 20px; text-align: center; }
+      .wtc-divider     { display: none; }
+    }
+
     /* ===== SECTION FAQ ===== */
     #faq {
       background: var(--color-white);
@@ -1459,6 +1519,21 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WTC ===== -->
+  <section id="wtc">
+    <div class="container">
+      <div class="wtc-inner">
+        <span class="wtc-label">En partenariat avec</span>
+        <div class="wtc-divider"></div>
+        <a href="https://www.wtcalgeria.com/" target="_blank" rel="noopener" class="wtc-logo-wrap">
+          <img src="https://img.mailinblue.com/10360417/images/rnb/original/699b59cadde0e5a917f9e40b.png" alt="World Trade Center Algiers" />
+        </a>
+        <div class="wtc-divider"></div>
+        <p class="wtc-text">Shortcut est partenaire du <strong>World Trade Center Algiers</strong> — un réseau de référence qui accompagne les entreprises algériennes dans leur développement.</p>
       </div>
     </div>
   </section>
