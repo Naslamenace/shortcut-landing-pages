@@ -13,12 +13,15 @@
 /formation/bureautique-data         /formation/bureautique-data.html      200
 /formation/collaboration-communication  /formation/collaboration-communication.html  200
 
-# Diagnostics
+# Diagnostics (fichiers dans diagnostic/ comme formation/)
 /diagnostic                         /diagnostic-gratuit.html              200
-/diagnostic/agroalimentaire         /diagnostic-agro.html                 200
-/diagnostic/bureaux-etudes          /diagnostic-bureaux-etudes.html       200
-/diagnostic/sante                   /diagnostic-sante.html                200
-/diagnostic/btp-h                   /diagnostic-btph.html                 200
+/diagnostic/agroalimentaire         /diagnostic/agroalimentaire.html      200
+/diagnostic/bureaux-etudes          /diagnostic/bureaux-etudes.html       200
+/diagnostic/sante                   /diagnostic/sante.html                200
+/diagnostic/btp-h                   /diagnostic/btp-h.html                200
+
+# diagnostic-gratuit (racine)
+/diagnostic-gratuit                 /diagnostic-gratuit.html              200
 
 # Anciennes URLs (compatibilité)
 /diagnostic-sante                   /diagnostic-sante.html                200
