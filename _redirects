@@ -1,6 +1,10 @@
 # URLs propres — Netlify _redirects
 # https://www.shortcut-formation.com/formation/techniques-vente (sans .html)
 
+# IMPORTANT : Exclure les Netlify Functions du catch-all 404
+# Sans cette règle, /* capture /.netlify/functions/* et la fonction ne s'exécute jamais
+/.netlify/functions/*  /.netlify/functions/:splat  200
+
 # Formations
 /formation/techniques-vente          /formation/techniques-vente.html      200
 /formation/leadership-management    /formation/leadership-management.html 200
