@@ -2137,7 +2137,7 @@
   </footer>
 
   <script>
-    var MAKE_WEBHOOK_URL = "/.netlify/functions/submit-diagnostic";
+    var DIAGNOSTIC_WEBHOOK_URL = "https://shortcut-formation.app.n8n.cloud/webhook/lead-diagnostic";
 
     function goToStep2() {
       document.getElementById('step-1').classList.remove('active');
@@ -2180,8 +2180,8 @@
         source: window.location.href
       };
 
-      if (MAKE_WEBHOOK_URL) {
-        fetch(MAKE_WEBHOOK_URL, {
+      if (DIAGNOSTIC_WEBHOOK_URL) {
+        fetch(DIAGNOSTIC_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
