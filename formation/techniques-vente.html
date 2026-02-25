@@ -268,13 +268,16 @@
       display: block;
     }
 
+    @media (min-width: 769px) {
+      .hero-br-mobile { display: none; } /* masque les sauts de ligne sur desktop */
+    }
     @media (max-width: 768px) {
       #hero { padding-top: 48px; padding-bottom: 48px; }
       #difficultes { padding-top: 28px; }
       .section-br { display: none; }
       .hero-inner { grid-template-columns: 1fr; gap: 32px; }
       #hero h1 { text-align: center; }
-      .hero-sub { text-align: center; margin-left: auto; margin-right: auto; }
+      .hero-sub { text-align: center; margin-left: auto; margin-right: auto; margin-bottom: 20px; }
       .hero-cta { justify-content: center; }
       .hero-img { order: -1; }
     }
@@ -1332,12 +1335,13 @@
 
     #faq .faq-list {
       grid-column: 2;
-      grid-row: 1 / -1;
+      grid-row: 1;
     }
 
     #faq .faq-cta {
-      grid-column: 1;
+      grid-column: 2;
       grid-row: 2;
+      margin-top: 32px;
     }
 
     #faq .faq-left h2 {
@@ -1547,7 +1551,7 @@
     <div class="container">
       <div class="hero-inner">
         <div>
-          <h1>Le raccourci vers une force de vente <span class="hero-title-accent">ultra performante</span></h1>
+          <h1>Le raccourci vers <br class="hero-br-mobile">une force de vente <br class="hero-br-mobile"><span class="hero-title-accent">ultra performante</span></h1>
           <p class="hero-sub">Une méthode éprouvée pour vendre plus, mieux et plus vite.</p>
           <div class="hero-cta">
             <a href="#programme" class="btn-primary">Découvrir le programme</a>
@@ -2043,6 +2047,7 @@
         <div class="faq-left">
           <h2>FAQ</h2>
           <p class="section-intro">Les questions fréquentes.</p>
+          <a href="#contact" class="btn-primary">Nous contacter</a>
         </div>
         <div class="faq-list">
         <div class="faq-item">
@@ -2081,7 +2086,7 @@
             <p>Par téléphone au +213 551 056 589, par email à contact@shortcut-formation.com, ou via le formulaire ci-dessus.</p>
           </div>
         </div>
-        <a href="#contact" class="btn-primary faq-cta">Nous contacter</a>
+      </div>
       </div>
     </div>
   </section>
