@@ -1224,6 +1224,7 @@
 
     @media (max-width: 600px) {
       .form-card { padding: 28px 20px; }
+      .cta-final-guarantees { flex-direction: column; gap: 10px; }
     }
 
     /* ===== TEMOIGNAGES ===== */
@@ -1434,18 +1435,59 @@
 
     /* ===== CTA FINAL ===== */
     #cta-final {
-      background: linear-gradient(175deg, #EBF3FF 0%, #F0F7FF 100%);
-      padding: 80px 0;
+      background: linear-gradient(135deg, #1558C7 0%, #1E6FEB 60%, #3B8BF5 100%);
+      padding: 96px 0;
       text-align: center;
     }
 
     #cta-final h2 {
-      font-size: clamp(24px, 3vw, 36px);
+      font-size: clamp(28px, 4vw, 46px);
       font-weight: 700;
-      margin-bottom: 24px;
+      color: #fff;
+      margin-bottom: 16px;
+      line-height: 1.15;
     }
 
-    #cta-final .btn-primary { margin-top: 8px; }
+    #cta-final p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.80);
+      margin-bottom: 40px;
+    }
+
+    .btn-primary-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--color-primary-dark);
+      font-family: var(--font-ui);
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: var(--radius-pill);
+      padding: 16px 40px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .btn-primary-white:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.20);
+      transform: translateY(-2px);
+    }
+
+    .cta-final-guarantees {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 24px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.65);
+      font-family: var(--font-ui);
+    }
+
+    .cta-final-guarantees span { display: flex; align-items: center; gap: 6px; }
 
     /* ===== FOOTER ===== */
     footer {
@@ -2083,8 +2125,14 @@
 
   <section id="cta-final">
     <div class="container">
-      <h2>Quand la théorie devient pratique <br class="section-br">et que la pratique devient résultats</h2>
-      <a href="#contact" class="btn-primary">Demander un diagnostic</a>
+      <h2>Votre équipe mérite mieux <br class="section-br" />qu'une formation générique.</h2>
+      <p>Un formulaire. Un créneau. Un plan d'action clair à la fin.</p>
+      <a href="#contact" class="btn-primary-white">Préparer mon diagnostic →</a>
+      <div class="cta-final-guarantees">
+        <span>✓ Gratuit</span>
+        <span>✓ Sans engagement</span>
+        <span>✓ Sans catalogue à la fin</span>
+      </div>
     </div>
   </section>
 
