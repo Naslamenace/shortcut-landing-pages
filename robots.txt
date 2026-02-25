@@ -1,0 +1,8 @@
+# robots.txt — www.shortcut-formation.com
+# Shortcut Formation
+
+User-agent: *
+Allow: /
+
+# Sitemap (créer sitemap.xml à la racine du site)
+Sitemap: https://www.shortcut-formation.com/sitemap.xml
