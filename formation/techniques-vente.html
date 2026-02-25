@@ -233,7 +233,7 @@
       font-size: clamp(28px, 3.5vw, 48px);
       font-weight: 700;
       line-height: 1.15;
-      margin-bottom: 22px;
+      margin-bottom: 12px;
       text-align: left;
     }
 
@@ -498,7 +498,7 @@
     #objectifs h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -667,7 +667,7 @@
     #pratique h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -741,7 +741,7 @@
     #pourquoi h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -829,7 +829,7 @@
     #parcours h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -1347,7 +1347,7 @@
     #faq .faq-left h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-align: left;
     }
 
@@ -1511,6 +1511,11 @@
       #faq { padding-top: 28px; }
     }
 
+    /* Espacement titre/sous-titre mobile */
+    @media (max-width: 768px) {
+      #hero h1 { margin-bottom: 12px; }
+      #objectifs h2, #pratique h2, #pourquoi h2, #parcours h2, #temoignages h2, #faq .faq-left h2 { margin-bottom: 12px; }
+    }
     /* Sous-titres harmonisés mobile — même taille que index.html */
     @media (max-width: 768px) {
       .hero-sub,
@@ -1531,13 +1536,13 @@
 <body>
   <header class="nav-wrapper">
     <nav>
-      <a href="../index.html" class="nav-logo">
+      <a href="/" class="nav-logo">
         <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut" />
       </a>
       <div style="flex:1;"></div>
       <div class="nav-right">
         <div class="nav-links">
-          <a href="../index.html#formations">Formations</a>
+          <a href="/#formations">Formations</a>
           <a href="#methodologie">Méthodologie</a>
           <a href="#faq">FAQ</a>
         </div>
@@ -1567,7 +1572,7 @@
   <section id="difficultes">
     <div class="container">
       <span class="section-label">Les difficultés rencontrées</span>
-      <h2>Comprendre les défis du métier <br class="section-br">pour mieux les relever.</h2>
+      <h2>Comprendre les défis du métier <br class="section-br">pour mieux les relever</h2>
       <div class="difficultes-grid">
         <div class="difficulte-item">
           <div class="difficulte-icon">
@@ -1764,7 +1769,7 @@
 
   <section id="pratique">
     <div class="container">
-      <h2>Quand la théorie devient pratique <br class="section-br">et que la pratique devient résultats.</h2>
+      <h2>Quand la théorie devient pratique <br class="section-br">et que la pratique devient résultats</h2>
       <p class="section-intro">Des conditions d'apprentissage optimales pour monter en compétences.</p>
       <div class="pratique-grid">
         <div class="pratique-item">
@@ -1882,7 +1887,7 @@
       <div class="form-wrapper">
         <div class="form-left">
           <span class="section-label">Commencer</span>
-          <h2>Le premier pas ne coûte rien. <br class="section-br" />Et il change souvent beaucoup de choses.</h2>
+          <h2>Le premier pas ne coûte rien <br class="section-br" />Et il change souvent beaucoup de choses</h2>
           <p>Un formulaire. Un créneau. Un plan d'action clair à la fin.</p>
           <div class="form-guarantees">
             <div class="form-guarantee">
@@ -1991,7 +1996,7 @@
           </div>
           <div id="form-success">
             <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1E6FEB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-            <h3>Votre formulaire a bien été reçu.</h3>
+            <h3>Votre formulaire a bien été reçu</h3>
             <p>Choisissez maintenant le créneau qui vous convient — votre expert aura pris connaissance de votre situation avant l'appel.</p>
           </div>
         </div>
@@ -2046,7 +2051,7 @@
       <div class="faq-inner">
         <div class="faq-left">
           <h2>FAQ</h2>
-          <p class="section-intro">Les questions fréquentes.</p>
+          <p class="section-intro">Les questions fréquentes</p>
           <a href="#contact" class="btn-primary">Nous contacter</a>
         </div>
         <div class="faq-list">
@@ -2093,7 +2098,7 @@
 
   <section id="cta-final">
     <div class="container">
-      <h2>Quand la théorie devient pratique <br class="section-br">et que la pratique devient résultats.</h2>
+      <h2>Quand la théorie devient pratique <br class="section-br">et que la pratique devient résultats</h2>
       <a href="https://calendly.com/contact-shortcut-formation/30min" class="btn-primary" target="_blank" rel="noopener">Demander un diagnostic</a>
     </div>
   </section>
@@ -2108,17 +2113,17 @@
         <div class="footer-links">
           <div class="footer-col">
             <h4>Les formations</h4>
-            <a href="techniques-vente.html">Techniques de vente & prospection</a>
-            <a href="automatisation-ia.html">Automatisation & intelligence artificielle</a>
-            <a href="gestion-projet.html">Gestion de projet & productivité</a>
-            <a href="leadership-management.html">Leadership & management</a>
-            <a href="collaboration-communication.html">Collaboration & communication efficace</a>
-            <a href="bureautique-data.html">Bureautique & data management</a>
+            <a href="techniques-vente">Techniques de vente & prospection</a>
+            <a href="automatisation-ia">Automatisation & intelligence artificielle</a>
+            <a href="gestion-projet">Gestion de projet & productivité</a>
+            <a href="leadership-management">Leadership & management</a>
+            <a href="collaboration-communication">Collaboration & communication efficace</a>
+            <a href="bureautique-data">Bureautique & data management</a>
           </div>
           <div class="footer-col">
             <h4>Navigation</h4>
             <a href="#">À propos</a>
-            <a href="../index.html">Accueil</a>
+            <a href="/">Accueil</a>
             <a href="#contact">Nous contacter</a>
             <a href="mailto:contact@shortcut-formation.com">contact@shortcut-formation.com</a>
             <a href="#faq">FAQ</a>
