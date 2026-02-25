@@ -96,6 +96,8 @@
 
     @media (max-width: 768px) {
       section { padding: 40px 0; }
+      /* Espacement titre/sous-titre mobile */
+      #formations h2, #pratique h2, #pourquoi h2, #parcours h2, #temoignages h2, #faq .faq-left h2 { margin-bottom: 12px; }
     }
 
     /* ===== NAV ===== */
@@ -393,7 +395,7 @@
     #formations h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -471,7 +473,7 @@
     #pratique h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -545,7 +547,7 @@
     #pourquoi h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -633,7 +635,7 @@
     #parcours h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
       text-align: center;
     }
 
@@ -1162,7 +1164,7 @@
     #faq .faq-left h2 {
       font-size: clamp(28px, 3.5vw, 40px);
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       text-align: left;
     }
 
@@ -1190,7 +1192,7 @@
       #faq .faq-left h2 {
         text-align: center;
         order: 1;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
       }
       #faq .faq-left .section-intro {
         text-align: center;
@@ -1430,42 +1432,42 @@
       <h2>Nos formations</h2>
       <p class="section-intro">Des programmes pensés pour accompagner les entreprises dans leur croissance.</p>
       <div class="formations-grid">
-        <a href="formation/techniques-vente.html" class="formation-card">
+        <a href="formation/techniques-vente" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/oskEwPeiTbrZL8nOiZolZkEec.png" alt="Techniques de vente" />
           <div class="formation-card-body">
             <h3>Techniques de vente & Prospection</h3>
             <p>Boostez la croissance de votre entreprise en augmentant vos ventes.</p>
           </div>
         </a>
-        <a href="formation/gestion-projet.html" class="formation-card">
+        <a href="formation/gestion-projet" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/Vpyj2rva8Z1eeD5bgi3J9Chg.png" alt="Gestion de projet" />
           <div class="formation-card-body">
             <h3>Gestion de projet & Productivité</h3>
             <p>Renforcez la coordination et l'efficacité de vos équipes méthodiquement.</p>
           </div>
         </a>
-        <a href="formation/automatisation-ia.html" class="formation-card">
+        <a href="formation/automatisation-ia" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/zxYjIMte7CgfErYqdXncZ9r0fs.png" alt="Automatisation & IA" />
           <div class="formation-card-body">
             <h3>Automatisation & IA</h3>
             <p>Automatisez vos process en formant vos équipes aux dernières technologies.</p>
           </div>
         </a>
-        <a href="formation/leadership-management.html" class="formation-card">
+        <a href="formation/leadership-management" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/J2nfXeYcAeyfXkSKUPnmvStW4.png" alt="Leadership & Management" />
           <div class="formation-card-body">
             <h3>Leadership & Management</h3>
             <p>Optimisez la performance collective en enrichissant les pratiques managériales.</p>
           </div>
         </a>
-        <a href="formation/collaboration-communication.html" class="formation-card">
+        <a href="formation/collaboration-communication" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/e43valqUrlCHBVp2aF15cVkUlDs.png" alt="Collaboration & Communication" />
           <div class="formation-card-body">
             <h3>Collaboration & Communication</h3>
             <p>Renforcez l'efficacité de vos équipes en améliorant la communication interne.</p>
           </div>
         </a>
-        <a href="formation/bureautique-data.html" class="formation-card">
+        <a href="formation/bureautique-data" class="formation-card">
           <img class="formation-card-img" src="https://framerusercontent.com/images/AUKfB804CRVDC5MtOxd4Fyyfw.png" alt="Bureautique & Data management" />
           <div class="formation-card-body">
             <h3>Bureautique & Data management</h3>
@@ -1599,7 +1601,7 @@
       <div class="form-wrapper">
         <div class="form-left">
           <span class="section-label">Commencer</span>
-          <h2>Le premier pas ne coûte rien. <br class="section-br" />Et il change souvent beaucoup de choses.</h2>
+          <h2>Le premier pas ne coûte rien <br class="section-br" />Et il change souvent beaucoup de choses</h2>
           <p>Un formulaire. Un créneau. Un plan d'action clair à la fin.</p>
           <div class="form-guarantees">
             <div class="form-guarantee">
@@ -1721,7 +1723,7 @@
           </div>
           <div id="form-success">
             <div class="success-icon"><svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#1E6FEB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg></div>
-            <h3>Votre formulaire a bien été reçu.</h3>
+            <h3>Votre formulaire a bien été reçu</h3>
             <p>Choisissez maintenant le créneau qui vous convient — votre expert aura pris connaissance de votre situation avant l'appel.</p>
           </div>
         </div>
@@ -1776,7 +1778,7 @@
       <div class="faq-inner">
         <div class="faq-left">
           <h2>FAQ</h2>
-          <p class="section-intro">Les questions fréquentes.</p>
+          <p class="section-intro">Les questions fréquentes</p>
           <a href="#contact" class="btn-primary">Nous contacter</a>
         </div>
         <div class="faq-list">
@@ -1833,17 +1835,17 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut" />
-          <p class="footer-tagline">Quand la théorie devient pratique et que la pratique devient résultats.</p>
+          <p class="footer-tagline">Quand la théorie devient pratique et que la pratique devient résultats</p>
         </div>
         <div class="footer-links">
           <div class="footer-col">
             <h4>Les formations</h4>
-            <a href="formation/techniques-vente.html">Techniques de vente & prospection</a>
-            <a href="formation/automatisation-ia.html">Automatisation & intelligence artificielle</a>
-            <a href="formation/gestion-projet.html">Gestion de projet & productivité</a>
-            <a href="formation/leadership-management.html">Leadership & management</a>
-            <a href="formation/collaboration-communication.html">Collaboration & communication efficace</a>
-            <a href="formation/bureautique-data.html">Bureautique & data management</a>
+            <a href="formation/techniques-vente">Techniques de vente & prospection</a>
+            <a href="formation/automatisation-ia">Automatisation & intelligence artificielle</a>
+            <a href="formation/gestion-projet">Gestion de projet & productivité</a>
+            <a href="formation/leadership-management">Leadership & management</a>
+            <a href="formation/collaboration-communication">Collaboration & communication efficace</a>
+            <a href="formation/bureautique-data">Bureautique & data management</a>
           </div>
           <div class="footer-col">
             <h4>Navigation</h4>
