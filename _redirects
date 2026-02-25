@@ -1,8 +1,26 @@
-/diagnostic            /diagnostic-gratuit.html       200
-/diagnostic-sante      /diagnostic-sante.html         200
-/diagnostic-agro       /diagnostic-agro.html          200
-/diagnostic-btph       /diagnostic-btph.html          200
-/diagnostic-bureaux-etudes  /diagnostic-bureaux-etudes.html  200
+# URLs propres — Netlify _redirects
+# https://www.shortcut-formation.com/formation/techniques-vente (sans .html)
 
-# Redirections de sécurité
-/*                     /diagnostic-gratuit.html       404
+# Formations
+/formation/techniques-vente          /formation/techniques-vente.html      200
+/formation/leadership-management    /formation/leadership-management.html 200
+/formation/automatisation-ia        /formation/automatisation-ia.html     200
+/formation/gestion-projet           /formation/gestion-projet.html        200
+/formation/bureautique-data         /formation/bureautique-data.html      200
+/formation/collaboration-communication  /formation/collaboration-communication.html  200
+
+# Diagnostics
+/diagnostic                         /diagnostic-gratuit.html              200
+/diagnostic/agroalimentaire         /diagnostic-agro.html                 200
+/diagnostic/bureaux-etudes          /diagnostic-bureaux-etudes.html       200
+/diagnostic/sante                   /diagnostic-sante.html                200
+/diagnostic/btp-h                   /diagnostic-btph.html                 200
+
+# Anciennes URLs (compatibilité)
+/diagnostic-sante                   /diagnostic-sante.html                200
+/diagnostic-agro                    /diagnostic-agro.html                 200
+/diagnostic-btph                    /diagnostic-btph.html                 200
+/diagnostic-bureaux-etudes          /diagnostic-bureaux-etudes.html       200
+
+# Page 404 personnalisée
+/*                                 /diagnostic-gratuit.html              404
