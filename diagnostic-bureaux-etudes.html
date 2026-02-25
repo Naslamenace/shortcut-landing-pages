@@ -1851,7 +1851,7 @@
     }
 
     // Form submit
-    const MAKE_WEBHOOK_URL = "/.netlify/functions/submit-diagnostic";
+    const DIAGNOSTIC_WEBHOOK_URL = "https://shortcut-formation.app.n8n.cloud/webhook/lead-diagnostic";
 
     function handleSubmit(e) {
       e.preventDefault();
@@ -1875,9 +1875,9 @@
         source:               window.location.href
       };
 
-      // Envoi vers Make (si webhook configuré)
-      if (MAKE_WEBHOOK_URL) {
-        fetch(MAKE_WEBHOOK_URL, {
+      // Envoi vers n8n (via proxy Netlify)
+      if (DIAGNOSTIC_WEBHOOK_URL) {
+        fetch(DIAGNOSTIC_WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
