@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+</head>
+<body style="margin:0;padding:0;background:#ffffff;font-family:Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#ffffff;">
+    <tr>
+      <td align="center" style="padding:40px 20px;">
+        <table width="580" cellpadding="0" cellspacing="0" style="max-width:580px;width:100%;">
+
+          <!-- HEADER : Shortcut | WTC -->
+          <tr>
+            <td style="padding:0 0 36px 0;" align="center">
+              <table cellpadding="0" cellspacing="0" align="center">
+                <tr>
+                  <td style="vertical-align:middle;">
+                    <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut" height="36"
+                         style="display:block;height:36px;width:auto;"/>
+                  </td>
+                  <td style="vertical-align:middle;padding:0 20px;font-family:Arial,sans-serif;font-size:20px;color:#cccccc;">
+                    |
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <img src="https://img.mailinblue.com/10360417/images/rnb/original/699b59cadde0e5a917f9e40b.png" alt="WTC Algeria" height="36"
+                         style="display:block;height:36px;width:auto;"/>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- CORPS -->
+          <tr>
+            <td style="padding:0 0 32px 0;font-family:Arial,sans-serif;font-size:16px;line-height:1.7;color:#1a1a2e;">
+              {{ params.body }}
+            </td>
+          </tr>
+
+          <!-- BOUTON CTA -->
+          <tr>
+            <td style="padding:0 0 36px 0;">
+              <a href="{{ params.calendly_url }}"
+                 style="display:inline-block;background:#1E6FEB;color:#ffffff;
+                        font-family:Arial,sans-serif;font-size:14px;font-weight:600;
+                        text-decoration:none;padding:12px 24px;border-radius:8px;">
+                Réserver un diagnostic gratuit →
+              </a>
+            </td>
+          </tr>
+
+          <!-- SIGNATURE -->
+          <tr>
+            <td style="border-top:1px solid #e8e8f0;padding:24px 0 0 0;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding-right:20px;vertical-align:middle;">
+                    <img src="https://framerusercontent.com/images/sbyiRxYA54ZyIKbZflSxpf5M00.png" alt="Shortcut" width="140"
+                         style="display:block;width:140px;height:auto;border-radius:6px;"/>
+                  </td>
+                  <td style="vertical-align:middle;">
+                    <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;font-weight:700;color:#1a1a2e;">
+                      {{ params.sender_name }}
+                    </p>
+                    <p style="margin:2px 0 0;font-family:Arial,sans-serif;font-size:12px;color:#8a8aaa;">
+                      Shortcut Institut de Formation — Partenaire WTC Algeria
+                    </p>
+                    <p style="margin:2px 0 0;font-family:Arial,sans-serif;font-size:12px;color:#8a8aaa;">
+                      {{ params.sender_phone }}
+                    </p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- FOOTER -->
+          <tr>
+            <td style="padding:32px 0 0 0;font-family:Arial,sans-serif;font-size:11px;color:#b0b0c8;line-height:1.6;">
+              Vous recevez cet email car votre entreprise opère dans un secteur que nous accompagnons.
+              <br/>
+              <a href="{{ unsubscribeUrl }}" style="color:#b0b0c8;">Se désabonner</a>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
